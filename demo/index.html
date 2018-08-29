@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<title>mk-radio-group Demo</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+	<!-- Font Awesome -->
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/regular.css" integrity="sha384-zkhEzh7td0PG30vxQk1D9liRKeizzot4eqkJ8gB3/I+mZ1rjgQk+BSt2F6rT2c+I" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous"> -->
+
+	<!--local styles-->
+	<link  href="../dist/mk-radio-group.css" rel="stylesheet">
+	<script src="../dist/mk-radio-group.js" ></script>
+
+	<style>
+		pre{ background-color: #eee; border-radius: 3px; padding: 10px;}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>mk-radio-group</h1>
+		<hr />
+		<h3>Basic usage</h3>
+		
+<div>HTML</div>
+<pre>&lt;input id='sel1' /></pre>
+<div>JavaScript</div>
+<pre>
+var opts = {
+	value: 5,
+	enum: [
+		{ value: 1, name: 'first item' },
+		{ value: 2, name: 'second item' },
+		{ value: 3, name: 'third item', },
+		{ value: 4, name: 'fourth item of very important list' },
+		{ value: 5, name: 'fifth item' },
+		{ value: 6, name: 'sixth item',},
+	]
+}
+var RS = new mkRadioSelect(sel1, opts);
+</pre>
+		<input id='sel1' />
+
+		<h3>Data in attributes</h3>
+		<div>HTML</div>
+		<pre>&lt;input id='sel2' type='number' value='5' data-enum='["1","2","3","4","5","6","7","8"]' /></pre>
+		<div>JavaScript</div>
+		<pre>var RS2 = new mkRadioSelect(sel2);</pre>
+		<input id='sel2' value='5' data-enum='["1","2","3","4","5","6","7","8"]' />
+		
+		<h3>Stacked</h3>
+		<p>Selected value is always scrolled into view</p>
+		<div>HTML</div>
+		<pre>&lt;input id='sel3' value='eight' data-enum='["one","two","three","four","five","six","seven","eight"]' /></pre>
+		<div>JavaScript</div>
+		<pre>var RS3 = new mkRadioSelect(sel3, {stacked: true});</pre>
+		<input id='sel3' value='seven' data-enum='["one","two","three","four","five","six","seven","eight"]' />
+
+
+	</div>
+	
+	<script>
+		var opts = {
+			value: 5,
+			enum: [
+				{name: 'first item', value: 1},
+				{name: 'second item', value: 2},
+				{name: 'third item', value: 3},
+				{name: 'fourth item of very important list', value: 4},
+				{name: 'fifth item', value: 5},
+				{name: 'sixth item', value: 6},
+			],
+			oninput: (val)=>{console.log('"oninput" is invoked with value', val)},
+			class: 'my-radio'
+		}
+		document.addEventListener('input', (e)=>{console.log('InputEvent is fired and delegated to Document', e)})
+		var RS = new mkRadioSelect(sel1, opts);
+		var RS2 = new mkRadioSelect(sel2);
+		var RS3 = new mkRadioSelect(sel3, {stacked: true});
+	</script>
+</body>
+</html>

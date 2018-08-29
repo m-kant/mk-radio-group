@@ -1,0 +1,79 @@
+
+.mk-radio-group{
+    $primary-color: #3F69AA;
+    $box-size: 20px;
+    $selector-height: 100px;
+    $pad: 2px;
+    $line-width: 2px;
+
+    list-style: none;
+    padding: 5px;
+    max-height: $selector-height;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+    overflow-y: auto;
+
+    & *{ box-sizing: border-box; }
+
+    &_item{
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        border-radius: $box-size/2;
+        transition: background-color 0.2s;
+        color: #555;
+
+        a{
+            display: block;
+            padding: 2px 2px 2px ($box-size + 10px);
+        }
+    }
+
+    &_box{
+        position: absolute;
+        top: calc(50% - 0.5em);
+        left: 5px;
+        display: inline-block;
+        width: $box-size;
+        height: $box-size;
+        border: $line-width solid rgba(0,0,0,0.4);
+        border-radius: 50%;
+    }
+
+    &_tick{
+        $size: $box-size - ($line-width + $pad)*2;
+        $offset: $pad;
+        
+        display: inline-block;
+        width:  $size;
+        height: $size;
+        position: absolute;
+        top: $offset;
+        left: $offset;
+        background-color: $primary-color;
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+        transition: transform 0.5s, opacity 0.3s;
+    }
+
+    &_item.active{
+        background-color: rgba(63, 105, 170, 0.1); // Nebulas Blue
+        color: #000;
+    }
+    &_item:hover{
+        background-color: rgba(0,0,0,0.05);
+    }
+    &_item.active &_tick{
+        transform: scale(1);
+        opacity: 1;
+    }
+    // &_item.active &_name{
+    //     font-weight: bold;
+    // }
+
+    &_stacked &_item{
+        display: block;
+        margin-right: 10px;
+    }
+}

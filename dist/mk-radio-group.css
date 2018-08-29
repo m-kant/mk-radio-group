@@ -1,0 +1,51 @@
+.mk-radio-group {
+  list-style: none;
+  padding: 5px;
+  max-height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow-y: auto; }
+  .mk-radio-group * {
+    box-sizing: border-box; }
+  .mk-radio-group_item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    color: #555; }
+    .mk-radio-group_item a {
+      display: block;
+      padding: 2px 2px 2px 30px; }
+  .mk-radio-group_box {
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 50%; }
+  .mk-radio-group_tick {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: #3F69AA;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.3s; }
+  .mk-radio-group_item.active {
+    background-color: rgba(63, 105, 170, 0.1);
+    color: #000; }
+  .mk-radio-group_item:hover {
+    background-color: rgba(0, 0, 0, 0.05); }
+  .mk-radio-group_item.active .mk-radio-group_tick {
+    transform: scale(1);
+    opacity: 1; }
+  .mk-radio-group_stacked .mk-radio-group_item {
+    display: block;
+    margin-right: 10px; }

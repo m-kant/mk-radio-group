@@ -1,0 +1,36 @@
+{
+  "author": {
+    "name": "mkant",
+    "email": "mkant@list.ru",
+    "url": "http://mkant.ru"
+  },
+  "name": "mk-radio-group",
+  "description": "Select item from enum with radio selector",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "del": "^2.2.1",
+    "documentation": "^8.1.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-documentation": "^3.2.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^1.5.3"
+  }
+}
