@@ -16,7 +16,9 @@
     color: #555; }
     .mk-radio-group_item a {
       display: block;
-      padding: 2px 2px 2px 30px; }
+      padding: 2px 2px 2px 30px;
+      color: inherit;
+      text-decoration: inherit; }
   .mk-radio-group_box {
     position: absolute;
     top: calc(50% - 0.5em);

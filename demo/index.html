@@ -31,10 +31,10 @@
 		<h3>Basic usage</h3>
 		
 <div>HTML</div>
-<pre>&lt;input id='sel1' /></pre>
+<pre>&lt;input id='rGroup1' /></pre>
 <div>JavaScript</div>
 <pre>
-var opts = {
+var options = {
 	value: 5,
 	enum: [
 		{ value: 1, name: 'first item' },
@@ -45,30 +45,30 @@ var opts = {
 		{ value: 6, name: 'sixth item',},
 	]
 }
-var RS = new mkRadioSelect(sel1, opts);
+var RG = new mkRadioGroup(rGroup1, options);
 </pre>
-		<input id='sel1' />
+		<input id='rGroup1' />
 
 		<h3>Data in attributes</h3>
 		<div>HTML</div>
-		<pre>&lt;input id='sel2' type='number' value='5' data-enum='["1","2","3","4","5","6","7","8"]' /></pre>
+		<pre>&lt;input id='rGroup2' value='5' data-enum='["1","2","3","4","5","6","7","8"]' /></pre>
 		<div>JavaScript</div>
-		<pre>var RS2 = new mkRadioSelect(sel2);</pre>
-		<input id='sel2' value='5' data-enum='["1","2","3","4","5","6","7","8"]' />
+		<pre>var RG2 = new mkRadioGroup(rGroup2);</pre>
+		<input id='rGroup2' value='5' data-enum='["1","2","3","4","5","6","7","8"]' />
 		
 		<h3>Stacked</h3>
 		<p>Selected value is always scrolled into view</p>
 		<div>HTML</div>
-		<pre>&lt;input id='sel3' value='eight' data-enum='["one","two","three","four","five","six","seven","eight"]' /></pre>
+		<pre>&lt;input id='rGroup3' value='eight' data-enum='["one","two","three","four","five","six","seven","eight"]' /></pre>
 		<div>JavaScript</div>
-		<pre>var RS3 = new mkRadioSelect(sel3, {stacked: true});</pre>
-		<input id='sel3' value='seven' data-enum='["one","two","three","four","five","six","seven","eight"]' />
+		<pre>var RG3 = new mkRadioGroup(rGroup3, {stacked: true});</pre>
+		<input id='rGroup3' value='seven' data-enum='["one","two","three","four","five","six","seven","eight"]' />
 
 
 	</div>
 	
 	<script>
-		var opts = {
+		var options = {
 			value: 5,
 			enum: [
 				{name: 'first item', value: 1},
@@ -82,9 +82,9 @@ var RS = new mkRadioSelect(sel1, opts);
 			class: 'my-radio'
 		}
 		document.addEventListener('input', (e)=>{console.log('InputEvent is fired and delegated to Document', e)})
-		var RS = new mkRadioSelect(sel1, opts);
-		var RS2 = new mkRadioSelect(sel2);
-		var RS3 = new mkRadioSelect(sel3, {stacked: true});
+		var RG = new mkRadioGroup(rGroup1, options);
+		var RG2 = new mkRadioGroup(rGroup2);
+		var RG3 = new mkRadioGroup(rGroup3, {stacked: true});
 	</script>
 </body>
 </html>

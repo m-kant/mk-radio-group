@@ -26,6 +26,8 @@
         a{
             display: block;
             padding: 2px 2px 2px ($box-size + 10px);
+            color: inherit;
+            text-decoration: inherit;
         }
     }
 

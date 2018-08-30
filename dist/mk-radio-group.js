@@ -2,22 +2,23 @@
 
 /** 
  * Creates new mk radio select widget. 
- * Uses HTML input element as an anchor to bind widget
- * Usage: `var rs = new mkRadioSelect(document.getElememtById('mkrs_input'), options)`
+ * Uses HTML input element as an anchor to bind widget.
+ * 
+ * Usage: `var rs = new mkRadioGroup(document.getElememtById('mkrs_input'), options)`
  * 
  * @param {HTMLElement} inputElement
- * @param {Object}   options overrides for mkRadioSelect.defaults
+ * @param {Object}   options overrides for mkRadioGroup.defaults
  * @param {Array}    options.enum     List of available options in one of formats: [value, value,...] or [{name, value},...]
  * @param {Mixed}    options.value    Selected value. If not set will be taken from input element
  * @param {String}   options.class    Additional css className for root radio-group element
  * @param {Boolean}  options.stacked  display radio selectors as stack
  * @param {Function} options.oninput  Callback for "input" event. Invoked with widget value as only argument
  * @class */
-window.mkRadioSelect = function (inputElement, options) {
+window.mkRadioGroup = function (inputElement, options) {
     if (typeof inputElement === 'string') inputElement = document.querySelector(inputElement);
-    if (!inputElement) throw new Error('No input element given for mkRadioSelect');
-    if (inputElement.nodeName !== 'INPUT') throw new Error('Given element for mkRadioSelect is not INPUT');
-    this.options = Object.assign({}, window.mkRadioSelect.defaults, options);
+    if (!inputElement) throw new Error('No input element given for mkRadioGroup');
+    if (inputElement.nodeName !== 'INPUT') throw new Error('Given element for mkRadioGroup is not INPUT');
+    this.options = Object.assign({}, window.mkRadioGroup.defaults, options);
 
     this.input = inputElement;
     this.input.type = 'hidden';
@@ -29,14 +30,14 @@ window.mkRadioSelect = function (inputElement, options) {
     }
 
     var cssClass = 'mk-radio-group';
-    cssClass += this.options.class ? ' ' + this.options.class : '';
-    cssClass += this.options.stacked ? ' mk-radio-group_stacked' : '';
+    if (this.options.class) cssClass += ' ' + this.options.class;
+    if (this.options.stacked) cssClass += ' mk-radio-group_stacked';
     this.face = this._el('ul', { class: cssClass });
     this.render();
     this.input.parentNode.insertBefore(this.face, this.input);
 };
 
-/** default options of new mkRadioSelect object 
+/** default options of new mkRadioGroup object 
  * @namespace defaults
  * @property {Array}    enum     null
  * @property {Mixed}    value    null
@@ -44,7 +45,7 @@ window.mkRadioSelect = function (inputElement, options) {
  * @property {Boolean}  stacked  false
  * @property {Function} oninput  null
 */
-mkRadioSelect.defaults = {
+mkRadioGroup.defaults = {
     enum: null,
     value: null,
     class: null,
@@ -52,7 +53,7 @@ mkRadioSelect.defaults = {
     oninput: null
 };
 
-mkRadioSelect.prototype = {
+mkRadioGroup.prototype = {
 
     /** cast enum to format {name, value} 
      * @param {Array} enumdata [value, value,...] or [{name, value},...]
